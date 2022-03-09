@@ -85,7 +85,7 @@ async def url_threading(message: types.Message, state: FSMContext):
         file_exists = is_file_exists(file_name)
         percentage_message = send_message_threadsafe(msg_id, "Скачиваю видео...")
         if file_exists == "":
-            ydl.download([message.text])
+            ydl.download(["ytsearch:" + message.text])
         else:
             if file_name != file_exists:
                 while file_name != is_file_exists(file_name):
